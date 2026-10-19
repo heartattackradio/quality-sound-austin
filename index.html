@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Quality Sound Austin provides professional DJ services, sound system rentals, live event audio, lighting, and event hosting in Austin, Texas.">
+  <title>Quality Sound Austin | DJ & Event Sound</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090909;
+      --panel: #111111;
+      --white: #f7f7f5;
+      --muted: #a2a2a2;
+      --line: #292929;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body, button, input, select, textarea { font-family: "DM Sans", sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font-size: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: min(var(--max), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .19em;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    h1, h2, h3, .brand {
+      font-family: "Manrope", sans-serif;
+      letter-spacing: -.045em;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 8.5vw, 7.2rem);
+      line-height: .98;
+      font-weight: 800;
+      max-width: 950px;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.08;
+      font-weight: 700;
+    }
+
+    p { color: var(--muted); }
+    .section { padding: 110px 0; }
+    .section-heading { max-width: 690px; margin-bottom: 44px; }
+    .section-heading .eyebrow { margin-bottom: 17px; }
+    .section-heading h2 { margin-bottom: 17px; }
+
+    .site-header {
+      position: sticky;
+      z-index: 100;
+      top: 0;
+      background: rgba(9, 9, 9, .88);
+      border-bottom: 1px solid rgba(255,255,255,.09);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -.035em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #fff;
+      font-size: .85rem;
+      letter-spacing: -.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: .85rem;
+      color: #d1d1d1;
+    }
+
+    .nav-links a:not(.nav-cta):hover { color: #fff; }
+
+    .nav-cta, .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 49px;
+      padding: 0 22px;
+      background: var(--white);
+      color: #080808;
+      border: 1px solid var(--white);
+      font-weight: 700;
+      font-size: .86rem;
+      transition: background .25s, color .25s, transform .25s;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover, .button:hover {
+      background: transparent;
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: #555;
+    }
+
+    .button-outline:hover { background: #fff; color: #080808; }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      color: white;
+      background: transparent;
+      border: 1px solid var(--line);
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      min-height: min(790px, calc(100svh - 78px));
+      display: flex;
+      align-items: center;
+      isolation: isolate;
+      overflow: hidden;
+      background: #101010;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.77) 48%, rgba(0,0,0,.3) 100%),
+        linear-gradient(0deg, rgba(0,0,0,.55), transparent 55%),
+        url("https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=2200&q=85") center 45% / cover;
+      filter: grayscale(100%);
+      transform: scale(1.02);
+    }
+
+    .hero-content { padding: 110px 0 120px; }
+    .hero .eyebrow { margin-bottom: 28px; }
+    .hero h1 span { color: #a8a8a8; }
+    .hero-copy { max-width: 570px; font-size: 1.05rem; margin-top: 28px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 34px; }
+    .hero-note { margin-top: 45px; font-size: .76rem; letter-spacing: .09em; text-transform: uppercase; color: #c0c0c0; }
+
+    .trust-strip { border-block: 1px solid var(--line); }
+    .trust-inner {
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+    .trust-inner p { font-size: .76rem; text-transform: uppercase; letter-spacing: .12em; }
+    .trust-items { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+    .trust-items span { font-size: .83rem; color: #e1e1e1; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .service-card {
+      min-height: 255px;
+      padding: 29px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, #141414, #0d0d0d);
+      transition: border-color .3s, transform .3s, background .3s;
+    }
+
+    .service-card:hover {
+      border-color: #777;
+      transform: translateY(-5px);
+      background: #151515;
+    }
+
+    .service-number { color: #777; font-size: .75rem; letter-spacing: .12em; }
+    .service-card h3 { font-size: 1.4rem; margin: 35px 0 11px; }
+    .service-card p { font-size: .91rem; }
+    .service-arrow { display: inline-block; margin-top: 22px; font-size: 1.2rem; transition: transform .2s; }
+    .service-card:hover .service-arrow { transform: translateX(5px); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 75px;
+    }
+
+    .about-image {
+      min-height: 520px;
+      background:
+        linear-gradient(0deg, rgba(0,0,0,.3), transparent),
+        url("https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1100&q=85") center / cover;
+      filter: grayscale(100%);
+      border: 1px solid var(--line);
+    }
+
+    .about-copy .eyebrow { margin-bottom: 18px; }
+    .about-copy h2 { margin-bottom: 22px; }
+    .about-copy p + p { margin-top: 16px; }
+    .about-points { list-style: none; margin: 27px 0 30px; display: grid; gap: 12px; }
+    .about-points li { display: flex; gap: 12px; align-items: flex-start; font-size: .92rem; }
+    .about-points li::before { content: "—"; color: #aaa; }
+
+    .event-types { background: #f3f3f0; color: #0b0b0b; }
+    .event-types p { color: #5f5f5f; }
+    .event-types .eyebrow { color: #555; }
+    .event-list { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #c7c7c3; }
+    .event-item { padding: 27px 16px 27px 0; border-bottom: 1px solid #c7c7c3; }
+    .event-item h3 { font-size: 1.12rem; margin-bottom: 5px; }
+    .event-item p { font-size: .84rem; }
+
+    .quote-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 75px;
+      align-items: start;
+    }
+
+    .quote-intro h2 { margin: 16px 0 22px; }
+    .quote-intro p { max-width: 390px; }
+    .contact-details { margin-top: 35px; padding-top: 25px; border-top: 1px solid var(--line); }
+    .contact-details p { font-size: .86rem; margin-top: 7px; }
+
+    .quote-form { border: 1px solid var(--line); background: var(--panel); padding: 34px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 21px; }
+    .field { display: grid; gap: 8px; }
+    .field-full { grid-column: 1 / -1; }
+    .field label { font-size: .8rem; color: #e1e1e1; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 1px solid #353535;
+      border-radius: 0;
+      outline: none;
+      background: #0b0b0b;
+      color: #fff;
+    }
+    .field textarea { min-height: 115px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: #bdbdbd; }
+    .field select option { background: #111; }
+    .form-note { font-size: .77rem; margin-top: 14px; }
+    .quote-form .button { width: 100%; margin-top: 22px; }
+    .form-status { margin-top: 14px; font-size: .85rem; color: #eee; }
+
+    .final-cta {
+      padding: 75px 0;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+    .final-cta h2 { max-width: 760px; margin: 0 auto 25px; }
+    .final-cta p { margin-bottom: 28px; }
+
+    footer { border-top: 1px solid var(--line); padding: 27px 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .footer-inner p, .footer-links { font-size: .78rem; }
+    .footer-links { display: flex; gap: 20px; color: #ccc; }
+    .footer-links a:hover { color: #fff; }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid, .quote-layout { grid-template-columns: 1fr; gap: 40px; }
+      .about-image { min-height: 380px; order: 2; }
+      .event-list { grid-template-columns: repeat(2, 1fr); }
+      .trust-inner { align-items: flex-start; flex-direction: column; justify-content: center; padding-block: 25px; }
+      .quote-intro p { max-width: 600px; }
+    }
+
+    @media (max-width: 680px) {
+      .container { width: min(var(--max), calc(100% - 34px)); }
+      .section { padding: 78px 0; }
+      .nav { min-height: 68px; }
+      .brand { font-size: .92rem; }
+      .brand-mark { width: 33px; height: 33px; }
+      .menu-toggle { display: grid; place-items: center; }
+      .nav-links {
+        position: absolute;
+        display: none;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 22px 20px 26px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: #0b0b0b;
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a:not(.nav-cta) { padding: 13px 0; }
+      .nav-cta { margin-top: 12px; }
+      .hero { min-height: 690px; min-height: 78svh; }
+      .hero-content { padding: 80px 0; }
+      .hero::before {
+        background:
+          linear-gradient(90deg, rgba(0,0,0,.87), rgba(0,0,0,.49)),
+          linear-gradient(0deg, rgba(0,0,0,.7), transparent),
+          url("https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=80") center / cover;
+        filter: grayscale(100%);
+      }
+      .hero h1 { font-size: clamp(3.25rem, 15vw, 5rem); }
+      .hero-copy { font-size: .98rem; }
+      .hero-actions { align-items: stretch; flex-direction: column; max-width: 300px; }
+      .hero-note { line-height: 1.8; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 220px; }
+      .about-image { min-height: 310px; }
+      .event-list { grid-template-columns: 1fr 1fr; }
+      .event-item { padding: 20px 10px 20px 0; }
+      .event-item h3 { font-size: 1rem; }
+      .event-item p { font-size: .78rem; }
+      .quote-form { padding: 22px 17px; }
+      .form-grid { grid-template-columns: 1fr; gap: 17px; }
+      .field-full { grid-column: auto; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Quality Sound Austin home">
+        <span class="brand-mark">QS</span>
+        <span>QUALITY SOUND <span style="color:#999">AUSTIN</span></span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#contact" class="nav-cta">Request a quote ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <p class="eyebrow">DJ · Audio · Event Production · Austin, Texas</p>
+        <h1>QUALITY SOUND.<br><span>UNFORGETTABLE</span><br>EVENTS.</h1>
+        <p class="hero-copy">
+          Professional sound, music, and event services for the moments that bring people together.
+          One team. Every detail considered.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#contact">Let's plan your event <span>↗</span></a>
+          <a class="button button-outline" href="#services">Explore services</a>
+        </div>
+        <p class="hero-note">Family-owned · Professional service · Built around your event</p>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-inner">
+        <p>Sound that brings the room together</p>
+        <div class="trust-items">
+          <span>Private Events</span>
+          <span>Corporate Events</span>
+          <span>Live Music</span>
+          <span>Celebrations</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">What we do</p>
+          <h2>Everything your event needs to sound and feel right.</h2>
+          <p>From the first song to the final announcement, we help create an experience your guests remember.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <span class="service-number">01 / MUSIC</span>
+            <h3>DJ Services</h3>
+            <p>Music tailored to your crowd, your occasion, and the atmosphere you want to create.</p>
+            <a class="service-arrow" href="#contact" aria-label="Ask about DJ services">↗</a>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-number">02 / EQUIPMENT</span>
+            <h3>Sound System Rental</h3>
+            <p>Reliable speakers and audio equipment for gatherings, celebrations, and special events.</p>
+            <a class="service-arrow" href="#contact" aria-label="Ask about sound system rental">↗</a>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-number">03 / LIVE AUDIO</span>
+            <h3>Live Sound & PA</h3>
+            <p>Clear, balanced sound for speakers, performers, presentations, and live entertainment.</p>
+            <a class="service-arrow" href="#contact" aria-label="Ask about live sound">↗</a>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-number">04 / ATMOSPHERE</span>
+            <h3>Lighting & Effects</h3>
+            <p>Add another dimension to your event with lighting and special effects options.</p>
+            <a class="service-arrow" href="#contact" aria-label="Ask about lighting">↗</a>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-number">05 / HOSTING</span>
+            <h3>MC & Event Hosting</h3>
+            <p>Confident announcements and thoughtful coordination to help keep your event flowing.</p>
+            <a class="service-arrow" href="#contact" aria-label="Ask about event hosting">↗</a>
+          </article>
+          <article class="service-card reveal">
+            <span class="service-number">06 / CUSTOM</span>
+            <h3>Event Packages</h3>
+            <p>Combine services to fit your venue, schedule, audience, and event requirements.</p>
+            <a class="service-arrow" href="#contact" aria-label="Ask about custom event packages">↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-image reveal" role="img" aria-label="Crowd enjoying a live music event"></div>
+        <div class="about-copy reveal">
+          <p class="eyebrow">A family-owned team</p>
+          <h2>Good people. Great sound. A better event.</h2>
+          <p>Quality Sound Austin is a father-and-son team bringing music, sound, and event support together under one name.</p>
+          <p>We believe professional service starts with listening. We learn what matters to you, plan around your needs, and help your event run smoothly.</p>
+          <ul class="about-points">
+            <li>Personal attention from the first conversation</li>
+            <li>Flexible options for different event sizes</li>
+            <li>Music and audio planned around your occasion</li>
+            <li>Clear communication from planning to event day</li>
+          </ul>
+          <a class="button button-outline" href="#contact">Tell us about your event ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section event-types" id="events">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Made for your occasion</p>
+          <h2>Whatever brings everyone together.</h2>
+          <p>We can tailor the setup and service to the space, schedule, and people in the room.</p>
+        </div>
+        <div class="event-list reveal">
+          <div class="event-item"><h3>Weddings</h3><p>Music and audio for your big day.</p></div>
+          <div class="event-item"><h3>Birthdays</h3><p>Make your celebration feel personal.</p></div>
+          <div class="event-item"><h3>Corporate</h3><p>Professional audio for business events.</p></div>
+          <div class="event-item"><h3>Private Parties</h3><p>Gatherings with the right atmosphere.</p></div>
+          <div class="event-item"><h3>Community Events</h3><p>Sound that brings people together.</p></div>
+          <div class="event-item"><h3>Live Performances</h3><p>Audio support for artists and speakers.</p></div>
+          <div class="event-item"><h3>School Events</h3><p>Music and sound for school occasions.</p></div>
+          <div class="event-item"><h3>Custom Events</h3><p>Tell us what you're planning.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container quote-layout">
+        <div class="quote-intro reveal">
+          <p class="eyebrow">Start planning</p>
+          <h2>Let's make your event sound incredible.</h2>
+          <p>Share a few details and we'll help you figure out the right setup for your event.</p>
+          <div class="contact-details">
+            <p class="eyebrow">Serving</p>
+            <p>Austin, Texas and surrounding areas</p>
+            <p style="margin-top:20px">Tell us your date, venue, and what services you're looking for. We'll take it from there.</p>
+          </div>
+        </div>
+
+        <form class="quote-form reveal" id="quoteForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Your name *</label>
+              <input id="name" name="name" autocomplete="name" required placeholder="Full name">
+            </div>
+            <div class="field">
+              <label for="email">Email address *</label>
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+            </div>
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(512) 555-0123">
+            </div>
+            <div class="field">
+              <label for="eventType">Type of event *</label>
+              <select id="eventType" name="eventType" required>
+                <option value="">Select event type</option>
+                <option>Wedding</option>
+                <option>Birthday or private party</option>
+                <option>Corporate event</option>
+                <option>Community event</option>
+                <option>Live performance</option>
+                <option>School event</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="date">Event date</label>
+              <input id="date" name="date" type="date">
+            </div>
+            <div class="field">
+              <label for="guests">Estimated guests</label>
+              <select id="guests" name="guests">
+                <option value="">Select guest count</option>
+                <option>Under 50</option>
+                <option>50–100</option>
+                <option>100–250</option>
+                <option>250–500</option>
+                <option>500+</option>
+              </select>
+            </div>
+            <div class="field field-full">
+              <label for="services">Services you're interested in</label>
+              <select id="services" name="services">
+                <option value="">Choose a service</option>
+                <option>DJ services</option>
+                <option>Sound system rental</option>
+                <option>Live sound and PA</option>
+                <option>Lighting and effects</option>
+                <option>MC and event hosting</option>
+                <option>Multiple services / custom package</option>
+              </select>
+            </div>
+            <div class="field field-full">
+              <label for="details">Tell us about your event</label>
+              <textarea id="details" name="details" placeholder="Venue, location, schedule, equipment needs, or anything else we should know..."></textarea>
+            </div>
+          </div>
+          <button class="button" type="submit">Prepare quote request <span>↗</span></button>
+          <p class="form-note">This opens your email app with your request ready to send.</p>
+          <p class="form-status" id="formStatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container reveal">
+        <p class="eyebrow">Quality Sound Austin</p>
+        <h2>Let's bring your next event to life.</h2>
+        <p>Thoughtful planning. Professional sound. A great experience.</p>
+        <a class="button" href="#contact">Request a quote ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand" href="#home">
+        <span class="brand-mark">QS</span>
+        <span>QUALITY SOUND AUSTIN</span>
+      </a>
+      <p>© <span id="year"></span> Quality Sound Austin. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(element => revealObserver.observe(element));
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("quoteForm").addEventListener("submit", event => {
+      event.preventDefault();
+
+      // Replace this with your real business email before publishing.
+      const BUSINESS_EMAIL = "YOUR_EMAIL_HERE";
+
+      if (BUSINESS_EMAIL === "YOUR_EMAIL_HERE") {
+        document.getElementById("formStatus").textContent =
+          "The website is working! Before accepting real quote requests, add your business email in the website code.";
+        return;
+      }
+
+      const data = new FormData(event.target);
+      const subject = encodeURIComponent("Quality Sound Austin — Quote Request");
+      const body = encodeURIComponent(
+        "New quote request\n\n" +
+        "Name: " + data.get("name") + "\n" +
+        "Email: " + data.get("email") + "\n" +
+        "Phone: " + (data.get("phone") || "Not provided") + "\n" +
+        "Event type: " + data.get("eventType") + "\n" +
+        "Event date: " + (data.get("date") || "Not provided") + "\n" +
+        "Estimated guests: " + (data.get("guests") || "Not provided") + "\n" +
+        "Services: " + (data.get("services") || "Not specified") + "\n\n" +
+        "Event details:\n" + (data.get("details") || "None provided")
+      );
+
+      window.location.href = "mailto:" + BUSINESS_EMAIL + "?subject=" + subject + "&body=" + body;
+      document.getElementById("formStatus").textContent =
+        "Your email app should open with your quote request. Please send it to complete your request.";
+    });
+  </script>
+</body>
+</html>
