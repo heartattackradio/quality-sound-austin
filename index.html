@@ -6,6 +6,10 @@
   <meta name="theme-color" content="#090909">
   <meta name="description" content="Quality Sound Austin provides DJ services, sound system rentals, live event audio, lighting, and event hosting in Austin, Texas.">
 
+  <!-- Browser tab icon and mobile home-screen icon -->
+  <link rel="icon" type="image/png" href="quality-sound-logo.png">
+  <link rel="apple-touch-icon" href="quality-sound-logo.png">
+
   <title>Quality Sound Austin | Professional Event Sound</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -152,15 +156,14 @@
       letter-spacing: .015em;
     }
 
+    /* Quality Sound logo image */
+
     .brand-mark {
       width: 42px;
       height: 42px;
-      display: grid;
-      place-items: center;
-      border: 1px solid white;
-      font-family: var(--heading);
-      font-size: 1.1rem;
-      font-weight: 600;
+      flex: 0 0 42px;
+      display: block;
+      object-fit: contain;
     }
 
     .brand-sub {
@@ -659,6 +662,7 @@
       .brand-mark {
         width: 36px;
         height: 36px;
+        flex-basis: 36px;
       }
 
       .menu-toggle {
@@ -795,7 +799,7 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#home" aria-label="Quality Sound Austin home">
-        <span class="brand-mark">QS</span>
+        <img class="brand-mark" src="quality-sound-logo.png" alt="Quality Sound Austin logo">
         <span>QUALITY SOUND<br><span class="brand-sub">AUSTIN</span></span>
       </a>
 
@@ -1044,7 +1048,7 @@
   <footer>
     <div class="container footer-inner">
       <a class="brand" href="#home">
-        <span class="brand-mark">QS</span>
+        <img class="brand-mark" src="quality-sound-logo.png" alt="Quality Sound Austin logo">
         <span>QUALITY SOUND AUSTIN</span>
       </a>
 
